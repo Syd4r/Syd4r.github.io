@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Traidr</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        function picture(){ 
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                document.getElementById('Image_name').innerHTML = document.getElementById("prompt").value;
+                var pic = "ai_art.png";
+                document.getElementById('bigpic').src = pic.replace('512x512', '512x512');
+                document.getElementById('bigpic').style.display='block';
+            }
+            xmlhttp.open("POST", "index.php?q=" + document.getElementById("prompt").value, true);
+            xmlhttp.send();
+
+        }
+
+    </script>
+
+
+</head>
+<body>
+
+    <form >
+        <label for="promptt">Prompt:</label><br>
+        <input type="text" id="prompt" name="inputt"><br>
+    </form>
+    
+    <button type="button" name="mycutelittlebutton" onclick="picture()">Get Image</button>
+    
+    <p id = "Image_name">No Image</p>
+    <img id="bigpic" src="bigpic" style="display:none;" />
+
+</body>
+
+</html>
