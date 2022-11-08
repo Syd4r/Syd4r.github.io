@@ -16,8 +16,8 @@
                 document.getElementById('bigpic').src = pic.replace('512x512', '512x512');
                 document.getElementById('bigpic').style.display='block';
             }
-            xmlhttp.open("POST", "index.php?q=" + document.getElementById("prompt").value, true);
-            xmlhttp.send();
+            xmlhttp.open("POST", "index.php", true);
+            xmlhttp.send(document.getElementById("prompt").value);
 
         }
 
