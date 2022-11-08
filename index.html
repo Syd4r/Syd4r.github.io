@@ -10,15 +10,12 @@
 
         function picture(){ 
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-                document.getElementById('Image_name').innerHTML = document.getElementById("prompt").value;
-                var pic = "ai_art.png";
-                document.getElementById('bigpic').src = pic.replace('512x512', '512x512');
-                document.getElementById('bigpic').style.display='block';
-            }
-            xmlhttp.open("GET", "index.php", true);
-            xmlhttp.send(document.getElementById("prompt").value);
-
+            xmlhttp.open("GET", "index.php$q="+document.getElementById("prompt").value, true);
+            xmlhttp.send();
+            document.getElementById('Image_name').innerHTML = document.getElementById("prompt").value;
+            var pic = "ai_art.png";
+            document.getElementById('bigpic').src = pic.replace('512x512', '512x512');
+            document.getElementById('bigpic').style.display='block';
         }
 
     </script>
