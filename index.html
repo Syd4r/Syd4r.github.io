@@ -10,8 +10,8 @@
 
         function picture(){ 
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", "index.php$q="+document.getElementById("prompt").value, true);
-            xmlhttp.send();
+            xmlhttp.open("GET", "index.php", true);
+            xmlhttp.send(document.getElementById("prompt").value);
             document.getElementById('Image_name').innerHTML = document.getElementById("prompt").value;
             var pic = "ai_art.png";
             document.getElementById('bigpic').src = pic.replace('512x512', '512x512');
